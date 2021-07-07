@@ -1,0 +1,50 @@
+<div class="mt-4 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form [formGroup]="sampleEntryFormGroup">
+            <div class="row mb-3">
+                <label for="inputSampleMaxCount" class="col-sm-4 col-form-label">Sample Max Count</label>
+                <div class="col-sm-8">
+                    <input type="text" placeholder="Enter Maximum Sample Count" formControlName="SampleMaxCount" class="form-control" id="inputSampleMaxCount">
+                    <div class="label-required" *ngIf="sampleEntryFormGroup.controls.SampleMaxCount.invalid && submitted">
+                        Sample Max Count is required
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPatientScore" class="col-sm-4 col-form-label">Patient Score</label>
+                <div class="col-sm-8">
+                    <input type="text" placeholder="Enter Patient Score" formControlName="PatientScore" class="form-control" id="inputPatientScore">
+                    <div class="label-required" *ngIf="sampleEntryFormGroup.controls.PatientScore.errors && submitted">
+                        Patient Score is required
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputDoctorScore" class="col-sm-4 col-form-label">Doctor Score</label>
+                <div class="col-sm-8">
+                    <input type="text" placeholder="Enter Doctor Score" formControlName="DoctorScore" class="form-control" id="inputDoctorScore">
+                    <div class="label-required" *ngIf="sampleEntryFormGroup.controls.DoctorScore.invalid && submitted">
+                        Doctor Score is required
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputUploadFile" class="col-sm-4 col-form-label">Message</label>
+                <div class="col-sm-8">
+                    <input id="inputUploadFile" type="file" class="form-control" placeholder="Upload from the text file"  formControlName="UploadFile" (change)="onSelectFile($event)">
+                </div>
+            </div>
+        </form>
+        <div class="text-center">
+            <button class="" type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        </div>
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+
+
+
+

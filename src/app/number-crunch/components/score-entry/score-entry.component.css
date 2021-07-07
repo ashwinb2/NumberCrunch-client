@@ -1,0 +1,9 @@
+.label {
+    font-weight: 700;
+    font-size: large;
+}
+
+.label-required {
+    color: #EE391C;
+    font-size: small;
+}
