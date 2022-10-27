@@ -14,16 +14,16 @@ import { NumberCrunchService } from '../../services/number-crunch.service';
 export class ScoreResultsComponent implements OnInit {
 
   sampleScoresRequest: SampleScoresRequest = new SampleScoresRequest();
-  sampleScores: SampleScore[] = []; 
+  sampleScores: SampleScore[] = [];
   viewsAsConstant = Views;
-  views: string[] = [ Views.Default, Views.Simple, Views.Bordered ];
+  views: string[] = [Views.Default, Views.Simple, Views.Bordered];
   selectedView: string = this.viewsAsConstant.Default;
   fileOutput: any;
   pageSize: number = 8;
   pageNumber: number = 1;
   totalRecords: number = 0;
   constructor(private _router: Router, private _numberCrunchService: NumberCrunchService,
-      private _sharedDataService: NumberCrunchSharedDataService) {
+    private _sharedDataService: NumberCrunchSharedDataService) {
 
   }
 
