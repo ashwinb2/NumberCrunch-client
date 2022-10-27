@@ -1,56 +1,54 @@
 <div class="col-sm-12">
-    <div class="btn-group" dropdown #dropdown="bs-dropdown" [autoClose]="false">
-      <div class="d-flex flex-row align-items-center">
-        <button id="button-basic" dropdownToggle type="button" 
-           class="btn btn-primary dropdown-toggle"
-           aria-controls="dropdown-basic">
-           View
-        </button>
-        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-           role="menu" aria-labelledby="button-basic">
-           <div *ngFor="let view of views">
-                <li role="menuitem"><a class="dropdown-item" (click)="onViewClicked(view)">{{view}}</a></li>
-           </div>
-        </ul>
-        <span class="ml-2 text-secondary font-italic">{{ selectedView }}</span>
-      </div>
-     </div>
-    <button type="button" class="btn btn-primary float-right" (click)="onBackClicked()">Go back</button>
+  <div class="btn-group" dropdown #dropdown="bs-dropdown" [autoClose]="false">
+    <div class="d-flex flex-row align-items-center">
+      <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+        aria-controls="dropdown-basic">
+        View
+      </button>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+        <div *ngFor="let view of views">
+          <li role="menuitem"><a class="dropdown-item" (click)="onViewClicked(view)">{{view}}</a></li>
+        </div>
+      </ul>
+      <span class="ml-2 text-secondary font-italic">{{ selectedView }}</span>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary float-right" (click)="onBackClicked()">Go back</button>
 </div>
 
 <div class="row mt-3">
   <div class="col-md-8">
-      <div class="card">
-          <div class="card-body">
-              <table class="table" [ngClass]="{'table-striped': selectedView === viewsAsConstant.Default,
+    <div class="card">
+      <div class="card-body">
+        <table class="table" [ngClass]="{'table-striped': selectedView === viewsAsConstant.Default,
               'table-bordered table-border': selectedView === viewsAsConstant.Bordered}">
-                  <thead>
-                      <th>Sample #</th>
-                      <th>Score</th>
-                  </thead>
-                  <tbody>
-                      <tr class="border-0" *ngFor="let dataItem of sampleScores;">
-                          <td>{{dataItem.sampleNumber}}</td>
-                          <td>{{dataItem.score}}</td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
+          <thead>
+            <th>Sample #</th>
+            <th>Score</th>
+          </thead>
+          <tbody>
+            <tr class="border-0" *ngFor="let dataItem of sampleScores;">
+              <td>{{dataItem.sampleNumber}}</td>
+              <td>{{dataItem.score}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <ngb-pagination class="d-flex justify-content-end pull-right" [collectionSize]="totalRecords" [(page)]="pageNumber"
-        aria-label="Default pagination" [pageSize]="pageSize" (pageChange)="loadData()"
-        [maxSize]="10" [boundaryLinks]="true">
-      </ngb-pagination>
+    </div>
+    <ngb-pagination class="d-flex justify-content-end pull-right" [collectionSize]="totalRecords" [(page)]="pageNumber"
+      aria-label="Default pagination" [pageSize]="pageSize" (pageChange)="loadData()" [maxSize]="10"
+      [boundaryLinks]="true">
+    </ngb-pagination>
   </div>
   <div class="col-md-4">
-      <div class="card">
-          <div class="card-header">
-              <h5>My Message</h5>
-          </div>
-          <div class="card-body">
-              {{fileOutput}}
-          </div>
+    <div class="card">
+      <div class="card-header">
+        <h5>My Message</h5>
       </div>
+      <div class="card-body">
+        {{fileOutput}}
+      </div>
+    </div>
 
   </div>
 </div>
@@ -60,8 +58,8 @@
 
 
 <ng-template #default>
-  
-    <!-- <table class="table table-bordered table-border">
+
+  <!-- <table class="table table-bordered table-border">
         <thead>
           <tr>
             <th width="50%" class="text-align-center th-background td-border columnTitle">Sample #</th>
@@ -78,18 +76,18 @@
 </ng-template>
 
 <ng-template #simple>
-    <table class="table table-striped table-border">
-        <thead>
-          <tr>
-            <th width="50%" class="text-align-center th-background td-border columnTitle">Sample #</th>
-            <th width="50%" class="th-background td-border text-align-center columnTitle">Score</th>
-          </tr>
-        </thead>
-        <tbody class="tbody-border">
-          <tr *ngFor="let dataItem of sampleScores">
-            <td class="td-border">{{ dataItem.sampleNumber }}</td>
-            <td class="td-border">{{ dataItem.score }}</td>
-          </tr>
-        </tbody>
-    </table> 
+  <table class="table table-striped table-border">
+    <thead>
+      <tr>
+        <th width="50%" class="text-align-center th-background td-border columnTitle">Sample #</th>
+        <th width="50%" class="th-background td-border text-align-center columnTitle">Score</th>
+      </tr>
+    </thead>
+    <tbody class="tbody-border">
+      <tr *ngFor="let dataItem of sampleScores">
+        <td class="td-border">{{ dataItem.sampleNumber }}</td>
+        <td class="td-border">{{ dataItem.score }}</td>
+      </tr>
+    </tbody>
+  </table>
 </ng-template>
